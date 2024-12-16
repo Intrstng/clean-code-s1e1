@@ -158,6 +158,6 @@ li > label {
   width: 224px;
 }
 
-                          .uncompleted__item-edit-name {
-                            display: none;
-                          }
+.uncompleted__item-edit-name {
+  display: none;
+}
