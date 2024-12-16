@@ -16,6 +16,9 @@
 .details .more-info {
   font-family: fantasy, cursive;
 }
+h1 {
+  display: none;
+}
 
 @media (max-width: 768px) {
   .details {
@@ -40,7 +43,7 @@ ul {
   padding: 0px;
 }
 li,
-h3 {
+h2 {
   list-style: none;
 }
 input,
@@ -60,7 +63,7 @@ button:hover {
   color: #3a3a3a;
 }
 /* Heading */
-h3,
+h2,
 .add-task-label {
   color: #333;
   font-weight: 700;
