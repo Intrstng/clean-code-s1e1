@@ -33,12 +33,14 @@ var createNewTaskElement=function(taskString){
   var deleteButtonImg=document.createElement("img");//delete button image
 
   label.innerText=taskString;
-  label.className='task';
 
   //Each elements, needs appending
+  listItem.className="uncompleted__item";
   checkBox.type="checkbox";
+  checkBox.className="uncompleted__item-check";
   editInput.type="text";
-  editInput.className="task";
+  editInput.className="uncompleted__item-task hidden";
+  label.className="uncompleted__item-name";
 
   editButton.innerText="Edit"; //innerText encodes special characters, HTML does not.
   editButton.className="edit";
@@ -65,7 +67,6 @@ var addTask=function(){
   //Create a new list item with the text from the #new-task:
   if (!taskInput.value) return;
   var listItem=createNewTaskElement(taskInput.value);
-
   //Append listItem to incompleteTaskHolder
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskCompleted);
@@ -82,17 +83,18 @@ var editTask=function(){
 
 
   var listItem=this.parentNode;
-
   var editInput=listItem.querySelector('input[type=text]');
   var label=listItem.querySelector("label");
   var editBtn=listItem.querySelector(".edit");
   var containsClass=listItem.classList.contains("edit-mode");
   //If class of the parent is .edit-mode
+  label.classList.add("hidden");
   if(containsClass){
 
     //switch to .edit-mode
     //label becomes the inputs value.
     label.innerText=editInput.value;
+    label.classList.remove("hidden");
     editBtn.innerText="Edit";
   }else{
     editInput.value=label.innerText;
@@ -122,9 +124,11 @@ var taskCompleted=function(){
 
   //Append the task list item to the #completed-tasks
   var listItem=this.parentNode;
+  listItem.className="completed__item";
+  var label=listItem.querySelector("label");
+  label.className="completed__item-name";
   completedTasksHolder.appendChild(listItem);
   bindTaskEvents(listItem, taskIncomplete);
-
 }
 
 
@@ -134,6 +138,9 @@ var taskIncomplete=function(){
   //When the checkbox is unchecked
   //Append the task list item to the #incomplete-tasks.
   var listItem=this.parentNode;
+  listItem.className="uncompleted__item";
+  var label=listItem.querySelector("label");
+  label.className="uncompleted__item-name";
   incompleteTaskHolder.appendChild(listItem);
   bindTaskEvents(listItem,taskCompleted);
 }

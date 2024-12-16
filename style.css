@@ -10,13 +10,13 @@
   display: block;
   text-align: right;
 }
-.details img {
+.details__image {
   width: 100%;
 }
-.details .more-info {
+.details__info {
   font-family: fantasy, cursive;
 }
-h1 {
+.details__title {
   display: none;
 }
 
@@ -30,12 +30,12 @@ h1 {
   width: 500px;
   margin: 0 auto 0;
 }
-.task {
+.add-task__input {
   width: 56%;
   display: inline-block;
   flex-grow: 1;
 }
-.task-row {
+.add-task__row {
   display: flex;
 }
 ul {
@@ -63,8 +63,9 @@ button:hover {
   color: #3a3a3a;
 }
 /* Heading */
-h2,
-.add-task-label {
+.uncompleted__subtitle,
+.completed__subtitle,
+.add-task__label {
   color: #333;
   font-weight: 700;
   font-size: 15px;
@@ -73,7 +74,10 @@ h2,
   margin: 0;
   text-transform: uppercase;
 }
-input[type="text"] {
+.add-task__input,
+.uncompleted__item-task,
+.uncompleted__item-edit-new,
+.completed__item-task {
   margin: 0;
   font-size: 18px;
   line-height: 18px;
@@ -85,12 +89,15 @@ input[type="text"] {
   font-family: Lato, sans-serif;
   color: #888;
 }
-input[type="text"]:focus {
+.add-task__input,
+.uncompleted__item-task,
+.uncompleted__item-edit-new,
+.completed__item-task:focus {
   color: #333;
 }
 
 /* New Task */
-.add-task-label {
+.add-task__label {
   display: block;
   margin: 0 0 20px;
 }
@@ -110,8 +117,9 @@ li {
 li > * {
   vertical-align: middle;
 }
-
-li > input[type="checkbox"] {
+.uncompleted__item-check,
+.uncompleted__item-edit-check,
+.completed__item-check {
   margin: 0 10px;
 }
 li > label {
@@ -120,7 +128,9 @@ li > label {
   font-size: 18px;
   width: 226px;
 }
-li > input[type="text"] {
+.uncompleted__item-task,
+.uncompleted__item-edit-new,
+.completed__item-task {
   width: 226px;
 }
 .delete img {
@@ -133,13 +143,13 @@ li > input[type="text"] {
 }
 
 /* Completed */
-#completed-tasks label {
+.completed__item-name {
   text-decoration: line-through;
   color: #888;
 }
 
 /* Edit Task */
-.task {
+.hidden {
   display: none;
 }
 
@@ -148,6 +158,6 @@ li > input[type="text"] {
   width: 224px;
 }
 
-.edit-mode label {
-  display: none;
-}
+                          .uncompleted__item-edit-name {
+                            display: none;
+                          }
